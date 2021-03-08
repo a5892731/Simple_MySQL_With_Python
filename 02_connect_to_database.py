@@ -16,7 +16,6 @@ import mysql.connector
 from mysql.connector import Error
 
 
-
 def create_connection(host_name, user_name, user_password, db_name):
 
     connection = None
@@ -36,7 +35,4 @@ def create_connection(host_name, user_name, user_password, db_name):
 
 if __name__ == "__main__":
     connection = create_connection("localhost", "root", "", "sm_app")
-
-
-
 

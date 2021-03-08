@@ -39,12 +39,11 @@ def create_database(connection, query):
         print(f"The error '{e}' occurred")
 
 
-
 if __name__ == "__main__":
 
     connection = create_connection("127.0.0.1", "root", "")
 
-    create_database_query = ">>> CREATE DATABASE sm_app"
+    create_database_query = "CREATE DATABASE sm_app"
     create_database(connection, create_database_query)
 
 
