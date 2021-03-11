@@ -10,6 +10,7 @@ links:
     https://miroslawzelent.pl/kurs-mysql/
 
     https://dev.mysql.com/doc/refman/5.5/en/reserved-words.html
+
 '''
 
 

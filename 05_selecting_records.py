@@ -8,6 +8,7 @@ this is first step script to learn for MySQL in Python
 links:
     https://realpython.com/python-sql-libraries/#mysql
     https://miroslawzelent.pl/kurs-mysql/
+
 '''
 
 
