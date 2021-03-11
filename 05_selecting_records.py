@@ -1,5 +1,5 @@
 '''
-date: 2021-03-08
+date: 2021-03-11
 ---------------------------------------------------------------------------------------------------------
 this is first step script to learn for MySQL in Python
 
@@ -50,5 +50,21 @@ if __name__ == "__main__":
 
     for user in users:
         print(user)
+    print("---------------------------")
+#----------------------------------------------------------------------------------
 
+    select_users = "SELECT id, name FROM users"
+    users = execute_read_query(connection, select_users)
 
+    for user in users:
+        print(user)
+    print("---------------------------")
+
+#----------------------------------------------------------------------------------
+
+    select_users = "SELECT id, name, age FROM users WHERE id = 2"
+    users = execute_read_query(connection, select_users)
+
+    for user in users:
+        print(user)
+    print("---------------------------")
