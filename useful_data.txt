@@ -1,7 +1,7 @@
 
 http://aspercz.pl/asperczpl/bazy/mysql/polecenia/klauzule.html
 https://www.flynerd.pl/2018/05/naucz-sie-sql-w-60min-kurs-podstawy.html
-
+https://miroslawzelent.pl/kurs-mysql/#
 
 klauzule;
     AS - używa się do tworzenia aliasów kolumn lub jako
