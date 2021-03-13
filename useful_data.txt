@@ -1,0 +1,49 @@
+
+http://aspercz.pl/asperczpl/bazy/mysql/polecenia/klauzule.html
+https://www.flynerd.pl/2018/05/naucz-sie-sql-w-60min-kurs-podstawy.html
+
+
+klauzule;
+    AS - używa się do tworzenia aliasów kolumn lub jako
+    słowo kluczowe w instrukcji CONNECT, CREATE DOMAIN, CREATE VIEW
+    SELECT  kolumna-1 [ AS alias-1 ], kolumna-2 [AS alias-2] [,...]] FROM wyr_tab
+
+    CASCADE powoduje usunięcie wraz z kasowaną domeną, tabelą,
+    kolumną, widokiem, schematem czy uprawnieniami, wszystkich innych obiektów
+    które z nich korzystają. Przy usuwaniu domen, jej właściwości (np. ograniczenia,
+    wartość domyślną, typy danych) dziedziczy kolumna. Klauzula CASCADE wykorzystywana
+    jest w instrukcji DROP DOMAIN, DROP SCHEMA, DROP VIEW, DROP TABLE,
+    ALTER TABLE, REVOKE
+
+    FROM - określa źródłowe tabele lub widoki wykorzystywane w zapytaniu.
+    Jeśli tabel jest więcej to zostana złączone. FROM jest obowiązkowa
+    SELECT lista_kolumn FROM wyrażenie_tab [IN zewnętrzna_baza]
+
+    GROUP BY - scala rekordy o tych samych wartościach wskazanych na
+    liście kolumn przy SELECT
+    SELECT lista_kolumn FROM wyrażenie_tab  GROUP BY pola_grupowania
+    [ HAVING ...]
+
+    HAVING - określa, które ze zgrupowanych rekordów
+    mają być wyświetlone
+    SELECT lista_pól FROM wyr_tab WHERE kryteria GROUP BY pola_grupowania HAVING kryteria_grupowania
+
+    ON COMMIT - mówi co zrobić z danymi po dokonaniu transakcji
+    ON COMMIT { DELETE | PRESERVE  } ROWS
+
+    ORDER BY - mówi jak sortować rekordy (rosnąco lub malejąco)
+    SELECT lista_pól FROM wyr_tab ORDER BY kolumna [ASC | DESC] [,kolumna-2] [ASC | DESC] [,...]
+
+    RESTRICT - oznacza że usuwana domena, tabela , kolumna, widok, schemat
+    nie może być w danej chwili używany przez jakikolwiek obiekt w bazie.
+    Przy kasowaniu uprawnień RESTRICT nie usuwa uprawnień jeśli spowoduje to
+    usunięcie jakiegoś obiektu. Przy usuwaniu schematu nie może zawierać on
+    żadnych obiektów. Klauzula RESTRICT wykorzystywana jest w instrukcji
+    DROP DOMAIN,  DROP SCHEMA, DROP TABLE, DROP VIEW, ALTER TABLE, REVOKE
+
+    WHERE - określa te rekordy  z tabel wymienionych w klauzuli FROM,
+    które spełniają podane kryteria. W przypadku braku klauzuli WHERE
+    zwracane są wszystkie wiersze tabeli. Klauzula ta nie jest obowiązkowa,
+    jednak jeśli występuje, musi być umieszczona po klauzuli FROM
+    SELECT lista_kolumn FROM wyr_tab WHERE predykat
+
