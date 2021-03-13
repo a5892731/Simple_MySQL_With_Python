@@ -10,12 +10,12 @@ from shop_db_exercise_functions import create_connection_to_server, create_datab
     create_connection_to_db, execute_sql_val, execute_read_query
 
 
-def select_product_price(shop_connection, shop_order_list_connection, order_name):
+def select_order_price(shop_connection, shop_order_list_connection, order_name):
 
 
     select_ordered_products = "SELECT product_id, amount FROM {}".format(order_name)
     ordered_products = execute_read_query(shop_order_list_connection, select_ordered_products)
-
+    order_value = 0
     print()
     for product in ordered_products: # where procuct is (id, quantity)
         print("product id: {} and quantity: {}".format(product[0], product[1]))
@@ -23,8 +23,11 @@ def select_product_price(shop_connection, shop_order_list_connection, order_name
         select_select_price= "SELECT price FROM {} WHERE id <= {}".format("products", product[0])
         product_price = execute_read_query(shop_connection, select_select_price)
 
-        order_value = product_price[0][0] * product[1]
-        print("product price {} and total cost {}".format(product_price[0][0], round(order_value, 2)))
+        product_value = product_price[0][0] * product[1]
+        print("product price {} and total cost {}".format(product_price[0][0], round(product_value, 2)))
+        order_value = order_value + product_value
+
+    print("order value: {}".format(round(order_value, 2)))
 
     return round(order_value, 2)
 
@@ -37,10 +40,10 @@ if __name__ == "__main__":
 
     order_number = 1
     order_name = "ord_{}".format(str(order_number))
-    user_id = 1
+    user_id = 2
     status = "zrealizowano"
 
-    order_value = select_product_price(shop_connection, shop_order_list_connection, order_name)
+    order_value = select_order_price(shop_connection, shop_order_list_connection, order_name)
 
     sql = "INSERT INTO {} (date, user_id, order_name, order_value, status) VALUES (%s, %s, %s, %s, %s)".format("orders")
     val = [('SELECT DATE(NOW())', user_id, order_name, order_value, status,)]
