@@ -17,10 +17,10 @@ def select_order_price(shop_connection, shop_order_list_connection, order_name):
     ordered_products = execute_read_query(shop_order_list_connection, select_ordered_products)
     order_value = 0
     print()
-    for product in ordered_products: # where procuct is (id, quantity)
+    for product in ordered_products: # where procuct is (product_id, quantity)
         print("product id: {} and quantity: {}".format(product[0], product[1]))
 
-        select_select_price= "SELECT price FROM {} WHERE id <= {}".format("products", product[0])
+        select_select_price= "SELECT price FROM {} WHERE product_id <= {}".format("products", product[0])
         product_price = execute_read_query(shop_connection, select_select_price)
 
         product_value = product_price[0][0] * product[1]
@@ -40,12 +40,12 @@ if __name__ == "__main__":
 
     order_number = 1
     order_name = "ord_{}".format(str(order_number))
-    user_id = 2
+    user_id = 1
     status = "zrealizowano"
 
     order_value = select_order_price(shop_connection, shop_order_list_connection, order_name)
 
-    sql = "INSERT INTO {} (date, user_id, order_name, order_value, status) VALUES (%s, %s, %s, %s, %s)".format("orders")
+    sql = "INSERT INTO {} (date, coustomer_id, order_name, order_value, status) VALUES (%s, %s, %s, %s, %s)".format("orders")
     val = [('SELECT DATE(NOW())', user_id, order_name, order_value, status,)]
 
     execute_sql_val(shop_connection, sql, val)

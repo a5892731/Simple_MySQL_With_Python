@@ -19,35 +19,35 @@ if __name__ == "__main__":
 
     create_products_table = """
     CREATE TABLE IF NOT EXISTS products (
-      id INT AUTO_INCREMENT, 
+      product_id INT AUTO_INCREMENT, 
       product_name CHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
       manufacturer CHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci, 
       product_number CHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
       price FLOAT, 
-      PRIMARY KEY (id)
+      PRIMARY KEY (product_id)
     ) ENGINE = InnoDB 
     """
 
     create_coustomers_table = """
     CREATE TABLE IF NOT EXISTS coustomers (
-      id INT AUTO_INCREMENT, 
+      coustomer_id INT AUTO_INCREMENT, 
       name CHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
       last_name CHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci, 
       city CHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
       street CHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci,      
-      PRIMARY KEY (id)
+      PRIMARY KEY (coustomer_id)
     ) ENGINE = InnoDB 
     """
 
     create_orders_table = """
     CREATE TABLE IF NOT EXISTS orders (
-      id INT AUTO_INCREMENT, 
+      orders_id INT AUTO_INCREMENT, 
       date DATE,
-      user_id INT,
+      coustomer_id INT,
       order_name CHAR(20),
       order_value Float,
       status CHAR(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci,
-      PRIMARY KEY (id)
+      PRIMARY KEY (orders_id)
     ) ENGINE = InnoDB 
     """
     #date: YYYY-MM-DD

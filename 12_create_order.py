@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     shop_order_list_connection = create_connection_to_db("127.0.0.1", "root", "", "shop_order_list")
 
-    order_number = 3
+    order_number = 1
     order_name = "ord_{}".format(order_number)
 
     create_order_table = """
@@ -26,14 +26,14 @@ if __name__ == "__main__":
       amount INT,
       PRIMARY KEY (id)
     ) ENGINE = InnoDB 
-    """.format(str(order_name))
+    """.format(order_name)
 
     execute_query(shop_order_list_connection, create_order_table)
 
 
 
     sql_order = "INSERT INTO {} (product_id, amount) VALUES (%s, %s)".format(order_name)
-    val_order = [(2, 1), (2, 1)]
+    val_order = [(2, 1), (1, 3), (3, 12),  ]
 
     execute_sql_val(shop_order_list_connection, sql_order, val_order)
 
